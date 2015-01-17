@@ -9,26 +9,28 @@
           </ul>
         </li>
 
-        <li class="item3"><a href="#"><span>Case</span></a>
+        <li class="item3"><a href="#"><span>Scents</span></a>
           <ul>
-            <li class="subitem1"><a href="<?php echo base_url (array ('admin', 'cases'));?>">Case list</a></li>
-            <li class="subitem2"><a href="<?php echo base_url (array ('admin', 'cases', 'tags'));?>">Case tag</a></li>
-            <li class="subitem3"><a href="<?php echo base_url (array ('admin', 'cases', 'create'));?>">Create Case</a></li>
+            <li class="subitem1"><a href="<?php echo base_url (array ('admin', 'scents'));?>">Scent list</a></li>
+            <li class="subitem2"><a href="<?php echo base_url (array ('admin', 'scents', 'tags'));?>">Scent tag</a></li>
+            <li class="subitem3"><a href="<?php echo base_url (array ('admin', 'scents', 'create'));?>">Create Scent</a></li>
           </ul>
         </li>
 
-        <li class="item3"><a href="#"><span>Aroma</span></a>
+        <li class="item3"><a href="#"><span>Products</span></a>
           <ul>
-            <li class="subitem1"><a href="<?php echo base_url (array ('admin', 'aromas'));?>">Case list</a></li>
-            <li class="subitem2"><a href="<?php echo base_url (array ('admin', 'aromas', 'tags'));?>">Case tag</a></li>
-            <li class="subitem3"><a href="<?php echo base_url (array ('admin', 'aromas', 'create'));?>">Create Case</a></li>
+            <li class="subitem1"><a href="<?php echo base_url (array ('admin', 'products'));?>">Product list</a></li>
+            <li class="subitem2"><a href="<?php echo base_url (array ('admin', 'products', 'tags'));?>">Product tag</a></li>
+            <li class="subitem3"><a href="<?php echo base_url (array ('admin', 'products', 'create'));?>">Create Product</a></li>
           </ul>
         </li>
 
-        <li class="item3"><a href="#"><span>News</span></a>
+
+        <li class="item3"><a href="#"><span>Portfolios</span></a>
           <ul>
-            <li class="subitem1"><a href="<?php echo base_url (array ('admin', 'news'));?>">News list</a></li>
-            <li class="subitem2"><a href="<?php echo base_url (array ('admin', 'news', 'create'));?>">Create News</a></li>
+            <li class="subitem1"><a href="<?php echo base_url (array ('admin', 'portfolios'));?>">Portfolio list</a></li>
+            <li class="subitem2"><a href="<?php echo base_url (array ('admin', 'portfolios', 'tags'));?>">Portfolio tag</a></li>
+            <li class="subitem3"><a href="<?php echo base_url (array ('admin', 'portfolios', 'create'));?>">Create Portfolio</a></li>
           </ul>
         </li>
 
