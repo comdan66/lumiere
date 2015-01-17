@@ -21,12 +21,12 @@
         <div class='logo'>
           <img src='<?php echo base_url (array ('resource', 'site', 'img', 'p_logo.png'));?>' />
         </div>
-        <div class='title'>das</div>
+        <div class='title'><?php echo isset ($page_title) ? $page_title : '';?></div>
         <div class='option'>
           <img src='<?php echo base_url (array ('resource', 'site', 'img', 'menu_iocn.png'));?>' />
         </div>
       </div>
-      <div id='right_slide' class='closes'>
+      <div id='right_slide' class='close'>
   <?php echo render_cell ('site_cells', 'menus');?>
       </div>
       <div id='slide_cover'></div>
@@ -50,46 +50,7 @@
       </div>
 
       <div class='content'>
-sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<br/>sda
-<hr/>sda
-<hr/>sda
-<br/>
-sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<br/>sda
-<hr/>sda
-<hr/>sda
-<br/>
-sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<hr/>sda
-<br/>sda
-<hr/>sda
-<hr/>sda
-<br/>ddssssssssss
-
+  <?php echo isset ($content) ? $content : '';?>
       </div>
     </div>
 

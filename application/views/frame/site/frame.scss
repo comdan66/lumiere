@@ -36,9 +36,7 @@ a {
 }
 
 html {
-
   body {
-    // font-family: "Open sans", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
     font-family:Arial, Helvetica, "微軟正黑體", sans-serif;
     font-size: 16px;
 
@@ -85,7 +83,6 @@ html {
           }
           .title {
             float: left;
-            border: 1px solid rgba(255, 0, 0, .3);
             margin-top: 18px;
             font-size: 18px;
             color: rgba(81, 78, 74, 1);
@@ -177,6 +174,8 @@ html {
         }
         .content {
           width: 100%;
+          background-color: #fff;
+          border: 1px solid rgba(255, 0, 0, 0);
         }
       }
     }
@@ -344,8 +343,8 @@ html {
           }
         }
         .content {
+          background-color: #fff;
           width: calc(100% - #{$sliderWidth});
-          background-color: rgba(0, 0, 255, 0.2);
         }
       }
     }

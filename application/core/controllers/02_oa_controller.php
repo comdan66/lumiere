@@ -12,6 +12,7 @@ class Oa_controller extends Root_controller {
   private $content_path    = array ();
   private $public_path     = array ();
   private $title           = '';
+  private $page_title      = '';
 
   public function __construct () {
     parent::__construct ();
@@ -64,6 +65,11 @@ class Oa_controller extends Root_controller {
     return $this;
   }
 
+  protected function set_page_title ($page_title) {
+    $this->page_title = $page_title;
+    return $this;
+  }
+
   protected function add_component_list ($key, $value, $my_key = null) {
     if (isset ($this->component_lists[$key]))
       if ($my_key) $this->component_lists[$key][$my_key][] = $value;
@@ -113,6 +119,10 @@ class Oa_controller extends Root_controller {
 
   public function get_title () {
     return $this->title;
+  }
+
+  public function get_page_title () {
+    return $this->page_title;
   }
 
   public function get_component_lists () {
@@ -190,8 +200,9 @@ class Oa_controller extends Root_controller {
 
     $frame_data = array ();
     $frame_data = array_merge ($frame_data, $this->load_components ());
-    $frame_data['title']   = $this->get_title ();
-    $frame_data['content'] = $this->load_content ($data, true);
+    $frame_data['title']      = $this->get_title ();
+    $frame_data['page_title'] = $this->get_page_title ();
+    $frame_data['content']    = $this->load_content ($data, true);
 
     if ($return) return $this->load->view ($path, $frame_data, $return);
     else $this->load->view ($path, $frame_data, $return)->cache ($cache_time);
