@@ -67,7 +67,6 @@ html {
       margin: 0;
       text-align: center;
       height: 100%;
-      padding: 20px 10px 10px 10px;
 
       #container {
         width: 100%;
@@ -75,78 +74,96 @@ html {
         position: relative;
         text-align: left;
         height: 100%;
+      }
 
-        .slider {
-          text-align: center;
-          font-size: 15px;
-          & {
-            *zoom: 1;
+      .header {
+        position: fixed;
+        display: inline-block;
+        width: 100%;
+        left: 0;
+        top: 0;
 
-            &:after {
-              display: table;
-              content: "";
-              line-height: 0;
-              clear: both;
-            }
-          }
-
-          img.logo {
-            display: block;
-            margin: 0 auto;
-            margin-bottom: 15px;
-          }
-          .item {
-            float: left;
+        .container {
+          width: 100%;
+          .l {
             display: inline-block;
-            width: 50%;
-            font-size: 18px;
-            padding: 10px 0;
-            border-bottom: 2px solid #fff;
-            a {
-              color: #fff;
-              text-decoration: none;
-              @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.375));
-            }            
-            &:hover {
-              a {
-                color: #70bc59;
-                @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.175));
-              }
-              border-bottom: 2px solid #70bc59;
-            }
+            width: 100%;
+            margin: 15px auto;
+          }
+          .r {
+            display: inline-block;
+            width: 100%;
+            padding: 0 10px;
+            @include clearfix();
 
-            &:nth-child(2n+1) {
-              width: calc(50% - 8px);
-              margin-left: 8px;
-            }
-            &:nth-child(2n) {
-              width: calc(50% - 8px);
-              margin-right: 8px;
+            .i {
+              display: inline-block;
+              width: calc(50% - 0px);
+              float: left;
+              text-align: center;
+              font-size: 18px;
+              margin: 10px auto;
+              padding: 5px;
+              border-bottom: 2px solid rgba(66, 40, 14, 1);
+              cursor: pointer;
+              @include transition(all .3s);
+
+              &:nth-child(2n+1) {
+                width: calc(50% - 8px);
+                margin-right: 8px;
+              }
+              &:nth-child(2n) {
+                width: calc(50% - 8px);
+                margin-left: 8px;
+              }
+              a {
+                text-decoration: none;
+                color: rgba(66, 40, 14, 1);
+              }
+
+              &:hover {
+                border-bottom: 2px solid rgba(224, 121, 38, 1);
+                a {
+                  text-decoration: none;
+                  color: rgba(224, 121, 38, 1);
+                }
+              }
             }
           }
         }
       }
+
       .footer {
-        position: absolute;
+        position: fixed;
         display: inline-block;
         width: 100%;
-        bottom: 0;
         left: 0;
-        font-size: 13px;
-        color: rgba(255, 255, 255, 1);
-        @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.375));
+        bottom: 0;
+        background-color: rgba(75, 46, 11, 0.5);
+        color: #fff;
+        font-size: 0.8em;
+        line-height: 1.6;
 
-        .left {
-          p {
-            margin: 2px;
+        .container {
+          width: 100%;
+          text-align: left;
+          padding: 20px;
 
-              a {
-                color: #fff;
-                text-decoration: none;
-                &:hover {
-                  text-decoration: underline;
-                }
+          .t {
+            display: block;
+            font-weight: bold;
+            font-size: 15px;
+          }
+          .b {
+            font-size: 13px;
+            .l {
+              span {
+                display: block;
               }
+            }
+            .r {
+              margin-top: 15px;
+            }
           }
         }
       }
@@ -162,6 +179,68 @@ html {
       text-align: center;
       height: 100%;
 
+      .header {
+        position: fixed;
+        display: inline-block;
+        width: 100%;
+        left: 0;
+        top: 0;
+        text-align: center;
+
+        .container {
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+          text-align: left;
+          @include clearfix();
+
+          $lWidth: 150px;
+          .l, .r {
+            float: left;
+            margin-top: 20px;
+          }
+          .l {
+            width: $lWidth;
+            img {
+              width: 208px;
+              height: 22px;
+            }
+          }
+          .r {
+            text-align: right;
+            width: calc(100% - #{$lWidth});
+            @include clearfix();
+
+            .i {
+              display: inline-block;
+              width: 100px;
+              float: right;
+              text-align: center;
+              font-size: 15px;
+              border-bottom: 2px solid rgba(66, 40, 14, 1);
+              padding: 5px;
+              cursor: pointer;
+              @include transition(all .3s);
+
+              & + .i {
+                margin-right: 20px;
+              }
+              a {
+                text-decoration: none;
+                color: rgba(66, 40, 14, 1);
+              }
+
+              &:hover {
+                border-bottom: 2px solid rgba(224, 121, 38, 1);
+                a {
+                  text-decoration: none;
+                  color: rgba(224, 121, 38, 1);
+                }
+              }
+            }
+          }
+        }
+      }
       #container {
         width: 100%;
         max-width: 1200px;
@@ -169,80 +248,48 @@ html {
         position: relative;
         text-align: left;
         height: 100%;
+      }
+      .footer {
+        position: fixed;
+        display: inline-block;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        text-align: center;
+        background-color: rgba(75, 46, 11, 0.5);
 
-        .slider {
-          position: relative;
-          display: inline-block;
-          width: 250px;
-          
-          .logo {
-            display: inline-block;
-            width: 148px;
-            height: 38px;
-
-            margin: 50px 0;
-            font-size: 80px;
-            color: rgba(255, 255, 255, 1);
-          }
-          .item {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 1);
-            border-bottom: 1px solid rgba(103, 175, 81, 0);
-            margin-bottom: 25px;
-            @include transition(all .5s);
-            @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.375));
-
-            a {
-              color: #fff;
-              text-decoration: none;
-              &:hover {
-                color: #70bc59;
-                border-bottom: 1px solid #70bc59;
-                @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.175));
-              }
-            }  
-          }
-        }
-        .footer {
-          position: absolute;
-          display: inline-block;
+        .container {
           width: 100%;
-          height: 200px;
-          bottom: 25px;
-          left: 0;
-
-          .left, .right {
-            position: relative;
-            float: left;
-            width: 400px;
-            height: 100%;
-            font-size: .8em;
-            text-align: left;
-            color: rgba(255, 255, 255, 1);
-            line-height: 1.6;
-            @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.375));
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 15px 0;
+          text-align: left;
+          color: #fff;
+          .t {
+            display: inline-block;
+            width: 100%;
+            font-size: 15px;
+            margin-bottom: 10px;
           }
-          .left {
-            p {
-              margin: 2px;
-              a {
-                color: #fff;
-                text-decoration: none;
-                &:hover {
-                  text-decoration: underline;
-                }
+          .b {
+            display: inline-block;
+            width: 100%;
+            font-size: 13px;
+            @include clearfix();
+
+            $rWidth: 280px;
+            .l, .r {
+              float: left;
+            }
+            .l {
+              width: calc(100% - #{$rWidth});
+              span {
+                margin-left: 15px;
               }
             }
-          }
-          .right {
-            text-align: right;
-            width: calc(100% - 400px);
-            p {
-              position: absolute;
-              bottom: 0;
-              right: 0;
-              margin: 4px;
-
+            .r {
+              text-align: right;
+              width: $rWidth;
             }
           }
         }

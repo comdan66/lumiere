@@ -20,34 +20,33 @@
   <?php }
       } ?>
     </div>
+    
+    <div id='container'></div>
 
-    <div id='container'>
-      <div class='slider'>
-        <a href='<?php echo base_url ();?>'>
-          <img class='logo' src='<?php echo base_url (array ('resource', 'site', 'img', 'wlogo.png'));?>'>
-        </a>
-        <div class='item'><a href='<?php echo base_url (array ('abouts'));?>'>ABOUT</a></div>
-        <div class='item'><a href='<?php echo base_url (array ('cases'));?>'>CASE STUDY</a></div>
-        <div class='item'><a href='<?php echo base_url (array ('news'));?>'>NEWS</a></div>
-        <div class='item'><a href='<?php echo base_url (array ('aromas'));?>'>AROMA</a></div>
-        <div class='item'><a href='<?php echo base_url (array ('contacts'));?>'>CONTACT</a></div>
-      </div>
-      <div class='footer'>
-        <div class='left'>
-          <p><b>台灣嗅覺香氛行銷協會</b></p>
-          <p>10690 台北市大安區忠孝東路四段191號10樓之一</p>
-          <br />
-          <p><b>SMA Scent Marketing Association</b></p>
-          <p>10F.-1 No.191, Sec 4, Jhongsiao E. Rd.,Da-an</p>
-          <p>District, TaipeiCity 10690, Taiwan (R.O.C)</p>
-          <br />
-
-          <p><a href='mailto:info@smatw.org'>info@smatw.org</a></p>
+    <div class='header'>
+      <div class='container'>
+        <div class='l'>
+          <img src='<?php echo base_url (array ('resource', 'site', 'img', 'logo.png'));?>' />
         </div>
-        <div class='right'>
-          <p>© 2014 SMA Scent Marketing Association Co.,Ltd.</p>
+        <div class='r'>
+          <div class='i'><a href=''>SERVICE</a></div>
+          <div class='i'><a href=''>PORTFOLIO</a></div>
+          <div class='i'><a href=''>PRODUCT</a></div>
+          <div class='i'><a href=''>SCENTS</a></div>
+          <div class='i'><a href=''>ABOUT</a></div>
         </div>
       </div>
     </div>
+
+    <div class='footer'>
+      <div class='container'>
+        <div class='t'>綠迷國際有限公司</div>
+        <div class='b'>
+          <div class='l'>芳香治療專用精油供應 ‧ 香氣行銷專用配方香氛<span>Tel:+886-2-8773-5040</span><span>Fax:+886- 2-2711-3370</span></div>
+          <div class='r'>© 2014 Lumiere International Lte.</div>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
