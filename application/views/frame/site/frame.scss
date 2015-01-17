@@ -36,8 +36,6 @@ a {
 }
 
 html {
-  height: 100%;
-  min-height: 100%;
 
   body {
     // font-family: "Open sans", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
@@ -46,25 +44,66 @@ html {
 
     margin: 0;
     text-align: center;
-    height: 100%;
-    min-height: 100%;
   }
 }
 @media screen and (min-width: 0px) and (max-width: 736px) {
   html {
+    height: 100%;
+    min-height: 100%;
     body {
-      .slide_c {
-        position: absolute;
-        width: 100%;
+      min-height: 100%;
+      background-color: rgba(245, 245, 245, 1);
+      #container {
+        position: relative;
         height: 100%;
+        min-height: 100%;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
         overflow: hidden;
+
+        .slider {
+          display: none;
+        }
+        .header {
+          width: 100%;
+          height: 60px;
+          border-top: 2px solid rgba(107, 71, 39, 1);
+          background-color: rgba(212, 200, 187, 1);
+          @include clearfix();
+          
+          .logo {
+            width: 120px;
+            float: left;
+            height: 100%;
+            padding: 10px;
+            background-color: rgba(224, 216, 207, 1);
+            img {
+              margin-top: 13px;
+              width: 100%;
+            }
+          }
+          .title {
+            float: left;
+            border: 1px solid rgba(255, 0, 0, .3);
+            margin-top: 18px;
+            font-size: 18px;
+            color: rgba(81, 78, 74, 1);
+            margin-left: 15px;
+          }
+          .option {
+            float: right;
+            margin-top: 13px;
+            margin-right: 10px;
+          }
+        }
 
         #slide_cover {
           position: absolute;
           display: inline-block;
           width: 100%;
-          height: calc(100% - 58px);
-          top: 58px;
+          height: calc(100% - 59px);
+          top: 59px;
           left: -100%;
           z-index: 99998;
 
@@ -76,12 +115,13 @@ html {
           position: absolute;
           display: inline-block;
           width: $rightSlideWidth;
-          height: calc(100% - 58px);
-          top: 58px;
+          height: calc(100% - 59px);
+          top: 59px;
           right: 0;
           z-index: 99999;
+          text-align: left;
 
-          background-color: rgba(231, 230, 228, 1);
+          background-color: rgba(232, 230, 229, 1);
           @include transition(all .5s cubic-bezier(0.325, 0.825, 0.470, 1));
           @include box-shadow(-2px 0 4px rgba(100, 100, 100, 0.5));
           @include box-sizing(border-box);
@@ -97,115 +137,46 @@ html {
             left: 0;
           }
 
-          .item {
-            width: 100%;
+          .items {
             display: inline-block;
-            padding: 14px;
-            padding-left: 36px;
-            border-bottom: 1px solid rgba(203, 203, 203, 1);
-            color: rgba(99, 98, 96, 1);
-            text-align: left;
-            font-size: 20px;
-            @include overflow-docx3();
-            @include transition(all .3s);
+            width: 100%;
 
-            &:hover {
-              color: #70bc59;
-            }
-          }
-          .sub {
-            border-bottom: 1px solid rgba(203, 203, 203, 1);
-            display: none;
-            &.show {
-              display: block;
-            }
             .item {
-              padding: 8px;
-              padding-left: 46px;
-              border: 0;
-              color: rgba(180, 180, 180, 1);
-              &.action {
-                color: rgba(101, 179, 79, 1);
+              padding: 20px;
+              padding-left: 36px;
+              font-size: 20px;
+              border-bottom: 1px solid #cbcbcb;
+
+              a {
+                color: rgba(66, 40, 14, 1);
+                text-decoration: none;
+                &:hover {
+                  text-decoration: underline;
+                }
               }
               &:hover {
-                color: #70bc59;
+                a {
+                  color: rgba(140, 110, 81, 1);
+                }
+              }
+            }
+            .sub {
+              display: none;
+              border-bottom: 1px solid #cbcbcb;
+
+              &.show {
+                display: block;
+              }
+              .item {
+                border-bottom: 0;
+                padding: 10px;
+                padding-left: 46px;
               }
             }
           }
         }
-      }
-      
-
-      #container {
-        position: relative;
-        width: 100%;
-
-        #header {
-          position: relative;
-          height: 58px;
-          // 195 x 115
-          .logo {
-            position: relative;
-            float: left;
-            display: inline-block;
-            width: 98px;
-            height: 100%;
-            background-color: rgba(234, 95, 56, 1);
-
-            img {
-              margin-top: 20px;
-              width: 80%;
-            }
-          }
-          .info {
-            position: relative;
-            float: left;
-            display: inline-block;
-            height: 100%;
-            width: calc(100% - 98px);
-            overflow: hidden;
-            border-bottom: 2px solid rgba(231, 96, 58, 1);
-
-            img.pc {
-              display: none;
-            }
-            img.mv {
-              position: absolute;
-              top: 0;
-              left: 0;
-            }
-            .title {
-              position: absolute;
-              margin-left: 30px;
-              font-size: 18px;
-              color: #585858;
-              top: 18px;
-            }
-            .option {
-              position: absolute;
-              right: 10px;
-              top: 13px;
-              display: inline-block;
-              width: 30px;
-              height: 30px;
-              cursor: pointer;
-            }
-          }
-        }
-    
-        #content {
-          position: relative;
-          display: inline-block;
+        .content {
           width: 100%;
-          .footer, .slider{
-            display: none;
-          }
-          .content {
-            display: inline-block;
-            width: 100%;
-            height: 100%;
-            position: relative;
-          }
         }
       }
     }
@@ -213,114 +184,124 @@ html {
 }
 @media screen and (min-width: 737px) {
   html {
+    height: 100%;
+    min-height: 100%;
     body {
-      .slide_c {
-        display: none;
-        #right_slide {
-          display: none;
-        }
-        #slide_cover {
-          display: none;
-        }
-      }
+      height: 100%;
+      min-height: 100%;
+      background-color: rgba(245, 245, 245, 1);
       #container {
-        width: 100%;
-        max-width: 1200px;
-        display: inline-block;
-        position: relative;
-        text-align: left;
         height: 100%;
         min-height: 100%;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        @include clearfix();
 
-        #header {
+        $sliderWidth: 285px;
+        .slider, .content {
           position: relative;
-          display: inline-block;
-          height: 120px;
-          width: 100%;
-          border: 1px solid rgba(204, 204, 204, 1);
-          border-top: 0;
-          border-bottom: 0;
-
-
-          .logo {
-            float: left;
-            position: relative;
-            display: inline-block;
-            width: 285px;
-            height: 100%;
-            line-height: 100%;
-            text-align: center;
-            background-color: rgba(234, 95, 56, 1);
-
-            img {
-              margin: 0 auto;
-              margin-top: 40px;
-            }
-          }
-          .info {
-            float: left;
-            position: relative;
-            display: inline-block;
-            height: 100%;
-            width: calc(100% - 285px);
-            overflow: hidden;
-            border-bottom: 2px solid rgba(231, 96, 58, 1);
-
-            img.pc {
-              position: absolute;
-              top: 0;
-              left: 0;
-            }
-            img.mv {
-              display: none;
-            }
-            .title {
-              position: absolute;
-              margin-left: 30px;
-              font-size: 30px;
-              color: #585858;
-              top: 40px;
-            }
-            .option {
-              display: none;
-            }
-          }
+          float: left;
+          text-align: left;
+          min-height: 100%;
         }
-        #content {
-          position: relative;
-          display: inline-block;
-          width: 100%;
-          min-height: calc(100% - 120px);
-          *zoom: 1;
-          border: 1px solid rgba(204, 204, 204, 1);
-          border-top: 0;
-          border-bottom: 0;
+        .header, #right_slide, #slide_cover {
+          display: none;
+        }
+        .slider {
+          width: $sliderWidth;
+          background-color: rgba(212, 200, 187, 1);
 
-          &:after {
-            display: table;
+          &:before {
             content: "";
-            line-height: 0;
-            clear: both;
+            position: absolute;
+            left: 30px;
+            height: 100%;
+            width: 1px;
+            border-left: 1px solid rgba(255, 0, 0, .3);
+            z-index: -10px;
+          }
+          .logo {
+            width: 285px;
+            height: 130px;
+            overflow: hidden;
+            margin-bottom: 20px;
+          }
+
+          .items {
+            display: inline-block;
+            width: 100%;
+            padding: 0 40px;
+
+            .item {
+              padding: 20px;
+              font-size: 15px;
+
+              a {
+                color: rgba(66, 40, 14, 1);
+                text-decoration: none;
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+              &:hover {
+                a {
+                  color: rgba(140, 110, 81, 1);
+                }
+              }
+            }
+            .sub {
+              display: none;
+              border: 1px solid rgba(140, 110, 81, 1);
+              border-right: 0;
+              border-left: 0;
+
+              &.show {
+                display: block;
+              }
+              .item {
+                padding: 10px;
+                padding-left: 20px;
+                font-size: 13px;
+                a {
+                  color: rgba(66, 40, 14, 1);
+                }
+                &:hover {
+                  a {
+                    text-decoration: none;
+                    color: rgba(140, 110, 81, 1);
+                  }
+                }
+              }
+            }
           }
           .footer {
             position: absolute;
-            bottom: 5px;
             display: inline-block;
-            width: 284px;
+            width: 100%;
+            bottom: 15px;
             left: 0;
-            padding: 0 10px;
+            font-size: 12px;
+            color: rgba(66, 40, 14, 1);
+            @include transition(all .3s);
+            @include opacity(1);
+            // @include clearfix();
 
-            .icons, .info {
-              display: inline-block;
-              width: 100%;
+            &.hide {
+              @include opacity(0);
             }
-            .icons {
+
+            .t {
+              padding-left: 60px;
+              margin-bottom: 10px;
+              @include clearfix();
+
               .line {
                 position: relative;
                 display: inline-block;
                 width: 1px;
                 height: 12px;
-                border-left: 1px solid rgba(106, 106, 106, 1);
+                border-left: 1px solid rgba(66, 40, 14, 1);
                 float: left;
                 margin: 0 13px;
                 margin-top: 2px;
@@ -339,8 +320,8 @@ html {
                 &:hover {
                   svg {
                     &, * {
-                      color: rgba(54, 54, 54, 1);
-                      fill: rgba(54, 54, 54, 1);
+                      color: rgba(66, 40, 14, 1);
+                      fill: rgba(66, 40, 14, 1);
                     }
                   }
                 }
@@ -350,69 +331,21 @@ html {
                   width: 100%;
                   height: 100%;
                   &, * {
-                    color: rgba(104, 104, 104, 1);
-                    fill: rgba(104, 104, 104, 1);
+                    color: rgba(66, 40, 14, 1);
+                    fill: rgba(66, 40, 14, 1);
                     @include transition(all .3s);
                   }
                 }
               }
             }
-            .info {
-              font-size: 13px;
-              color: rgba(116, 116, 116, 1);
+            .b {
+              padding-left: 60px;
             }
           }
-          .slider, .content {
-            position: relative;
-            display: inline-block;
-            float: left;
-            width: 284px;
-            min-height: 100%;
-
-          }
-          .slider {
-            padding: 0 40px;
-            
-            .item {
-              width: 100%;
-              display: inline-block;
-              padding: 14px;
-              padding-left: 36px;
-              border-bottom: 1px solid rgba(203, 203, 203, 1);
-              color: rgba(107, 107, 107, 1);
-              @include overflow-docx3();
-              @include transition(all .3s);
-
-              &:hover {
-                color: #70bc59;
-              }
-            }
-            .sub {
-              border-bottom: 1px solid rgba(203, 203, 203, 1);
-              display: none;
-              &.show {
-                display: block;
-              }
-              .item {
-                padding: 8px;
-                padding-left: 46px;
-                border: 0;
-                color: rgba(180, 180, 180, 1);
-                &.action {
-                  color: rgba(101, 179, 79, 1);
-                }
-                &:hover {
-                  color: #70bc59;
-                }
-              }
-            }
-          }
-          .content {
-            border-left: 1px solid rgba(204, 204, 204, 1);
-            width: calc(100% - 284px);
-            min-height: 100%;
-          }
-
+        }
+        .content {
+          width: calc(100% - #{$sliderWidth});
+          background-color: rgba(0, 0, 255, 0.2);
         }
       }
     }

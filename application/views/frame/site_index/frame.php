@@ -29,11 +29,11 @@
           <img src='<?php echo base_url (array ('resource', 'site', 'img', 'logo.png'));?>' />
         </div>
         <div class='r'>
-          <div class='i'><a href=''>SERVICE</a></div>
-          <div class='i'><a href=''>PORTFOLIO</a></div>
-          <div class='i'><a href=''>PRODUCT</a></div>
-          <div class='i'><a href=''>SCENTS</a></div>
-          <div class='i'><a href=''>ABOUT</a></div>
+          <div class='i'><a href='<?php echo base_url (array ('services'));?>'>SERVICE</a></div>
+          <div class='i'><a href='<?php echo base_url (array ('protfolio'));?>'>PORTFOLIO</a></div>
+          <div class='i'><a href='<?php echo base_url (array ('product'));?>'>PRODUCT</a></div>
+          <div class='i'><a href='<?php echo base_url (array ('scents'));?>'>SCENTS</a></div>
+          <div class='i'><a href='<?php echo base_url (array ('abouts'));?>'>ABOUT</a></div>
         </div>
       </div>
     </div>

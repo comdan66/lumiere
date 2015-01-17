@@ -1,19 +1,29 @@
-      <a href='<?php echo base_url ('abouts');?>'><div class='item'>ABOUT</div></a>
-      <a href='<?php echo base_url ('cases');?>'><div class='item'>CASE STUDY</div></a>
-<?php if ($tags = CaseTag::find ('all')) { ?>
-        <div class='sub' data-key='cases'>  
+  <div class='items'>
+    <div class='item'><a href='<?php echo base_url (array ());?>'>HOME</a></div>
+    <div class='item'><a href='<?php echo base_url (array ('abouts'));?>'>ABOUT</a></div>
+    <div class='item'><a href='<?php echo base_url (array ('scents'));?>'>SCENTS</a></div>
+<?php if ($tags = ScentTag::find ('all')) { ?>
+        <div class='sub' data-key='scents'>
     <?php foreach ($tags as $tag) { ?>
-            <a href='<?php echo base_url ('cases');?>#<?php echo $tag->name;?>'><div class='item' data-v='<?php echo $tag->name;?>'><?php echo $tag->name;?></div></a>
+            <div class='item'><a href='<?php echo base_url ('scents');?>#<?php echo $tag->name;?>'><?php echo $tag->name;?></a></div>
    <?php  } ?>
         </div>
 <?php } ?>
-      <a href='<?php echo base_url ('news');?>'><div class='item'>NEWS</div></a>
-      <a href='<?php echo base_url ('aromas');?>'><div class='item'>AROMA</div></a>
-<?php if ($tags = AromaTag::find ('all')) { ?>
-        <div class='sub' data-key='aromas'>  
+    <div class='item'><a href='<?php echo base_url (array ('products'));?>'>PRODUCT</a></div>
+<?php if ($tags = ProductTag::find ('all')) { ?>
+        <div class='sub' data-key='products'>
     <?php foreach ($tags as $tag) { ?>
-            <a href='<?php echo base_url (array ('aromas', 0, $tag->name));?>'><div class='item'><?php echo $tag->name;?></div></a>
+            <div class='item'><a href='<?php echo base_url ('scents');?>#<?php echo $tag->name;?>'><?php echo $tag->name;?></a></div>
    <?php  } ?>
         </div>
 <?php } ?>
-      <a href='<?php echo base_url ('contacts');?>'><div class='item'>CONTACT</div></a>
+    <div class='item'><a href='<?php echo base_url (array ('portfolios'));?>'>PORTFOLIO</a></div>
+<?php if ($tags = PortfolioTag::find ('all')) { ?>
+        <div class='sub' data-key='portfolios'>
+    <?php foreach ($tags as $tag) { ?>
+            <div class='item'><a href='<?php echo base_url ('scents');?>#<?php echo $tag->name;?>'><?php echo $tag->name;?></a></div>
+   <?php  } ?>
+        </div>
+<?php } ?>
+    <div class='item'><a href='<?php echo base_url (array ('services'));?>'>SERVICE</a></div>
+  </div>
