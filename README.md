@@ -18,7 +18,7 @@ The OA's framework, It is based on CodeIgniter version 2.1.4!
 
 * 作者名稱 - [OA Wu](http://www.ioa.tw/)
 * E-mail - <comdan66@gmail.com>
-* 作品名稱 - SMA
+* 作品名稱 - Lumiere
 * 最新版本 - 1.0.0
-* GitHub - [sma](https://github.com/comdan66/sma)
+* GitHub - [Lumiere](https://github.com/comdan66/lumiere)
 * 更新日期 - 2015/01/11
