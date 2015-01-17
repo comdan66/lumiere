@@ -39,23 +39,15 @@
           <tr>
             <td>產品圖片＊</td>
             <td class="textleft">
-              <div class='files'>
-                <button type="button" class='add_pic'>＋</button>
-              </div>
-              <br />
-              ( 圖片格式：jpg / gif / png )
-              <br />
-              <div class="pic">
-                <ul>
-            <?php foreach ($product->pics as $pic) { ?>
-                    <li>
-                      <input type='hidden' name='pics[]' value='<?php echo $pic->id;?>' />
-                      <img src="<?php echo $pic->file_name->url ('80x80');?>" alt="" width="80" height="80">
-                      <a href="#" class='del_pic'>刪除</a>
-                    </li>
-            <?php } ?>
-                </ul>
-              </div>
+              <img src="<?php echo $product->file_name->url ('80x80');?>" alt="" width="80" height="80">
+              <hr/>
+              <input type='file' name='file' value=''/>
+            </td>
+          </tr>
+          <tr>
+            <td>youtube鏈結</td>
+            <td class="textleft">
+              <input type='text' value="www.youtube.com/watch?v=<?php echo $product->youtube;?>" name='youtube' placeholder='請輸入youtube鏈結' title="請輸入youtube鏈結"  maxlength='100' pattern=".{1,100}" required title="請輸入youtube鏈結" />
             </td>
           </tr>
           <tr>
@@ -131,10 +123,6 @@
     </article>
   </form>
 </section>
-
-<script id='_file' type='text/x-html-template'>
-  <input type="file" name='files[]' class='file' value='' accept="image/jpg, image/jpeg, image/png" />
-</script>
 
 <script id='_block1' type='text/x-html-template'>
   <table data-index='<%=index%>' data-count='0' width="100%" border="0" cellspacing="0" cellpadding="0" style='margin: 15px auto;'>

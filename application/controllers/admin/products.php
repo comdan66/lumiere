@@ -13,11 +13,6 @@ class Products extends Admin_controller {
 
   private function _delete ($ids) {
     array_map (function ($product) {
-      array_map (function ($pic) {
-        $pic->file_name->cleanAllFiles ();
-        $pic->delete ();
-      }, $product->pics);
-
       array_map (function ($block) {
         array_map (function ($item) {
           $item->delete ();
@@ -26,6 +21,7 @@ class Products extends Admin_controller {
         $block->delete ();
       }, $product->blocks);
 
+      $product->file_name->cleanAllFiles ();
       $product->delete ();
     }, Product::find ('all', array ('conditions' => array ('id IN (?)', $ids))));
 
@@ -84,19 +80,24 @@ class Products extends Admin_controller {
     if ($this->has_post ()) {
       $title       = trim ($this->input_post ('title'));
       $description = trim ($this->input_post ('description'));
+      $youtube     = trim ($this->input_post ('youtube'));
+
+      if ($youtube) {
+        parse_str (parse_url ($youtube, PHP_URL_QUERY ), $youtube);
+        $youtube = isset ($youtube['v']) ? $youtube['v'] : '';
+      }
+      
       $is_enabled  = $this->input_post ('is_enabled');
       $product_tag_id = $this->input_post ('product_tag_id');
 
-      $files       = $this->input_post ('files[]', true, true);
+      $file       = $this->input_post ('file', true, true);
       $blocks      = $this->input_post ('blocks');
 
-      if (true || ($title && $description && $files && is_numeric ($is_enabled))) {
+      if (true || ($title && $description && $youtube && $file && is_numeric ($is_enabled))) {
 
-        if (verifyCreateOrm ($product = Product::create (array ('title' => $title ? $title : '', 'description' => $description ? $description : '', 'is_enabled' => is_numeric ($is_enabled) ? $is_enabled : 1, 'product_tag_id' => $product_tag_id ? $product_tag_id : 0)))) {
-          foreach ($files as $file)
-            if (verifyCreateOrm ($pic = ProductPic::create (array ('product_id' => $product->id, 'file_name' => ''))))
-              $pic->file_name->put ($file);
-
+        if (verifyCreateOrm ($product = Product::create (array ('title' => $title ? $title : '', 'description' => $description ? $description : '', 'youtube' => $youtube ? $youtube : '', 'is_enabled' => is_numeric ($is_enabled) ? $is_enabled : 1, 'file_name' => '', 'product_tag_id' => $product_tag_id ? $product_tag_id : 0)))) {
+          $product->file_name->put ($file);
+          
           if ($blocks)
             foreach ($blocks as $block) {
               $b = ProductBlock::create (array ('product_id' => $product->id, 'title' => $block['title'], 'type' => $block['type']));
@@ -126,21 +127,20 @@ class Products extends Admin_controller {
     if ($this->has_post ()) {
       $title       = trim ($this->input_post ('title'));
       $description = trim ($this->input_post ('description'));
+      $youtube     = trim ($this->input_post ('youtube'));
+
+      if ($youtube) {
+        parse_str (parse_url ($youtube, PHP_URL_QUERY ), $youtube);
+        $youtube = isset ($youtube['v']) ? $youtube['v'] : '';
+      }
+
       $is_enabled  = $this->input_post ('is_enabled');
       $product_tag_id = $this->input_post ('product_tag_id');
+      $file  = $this->input_post ('file', true, true);
 
-      $files       = $this->input_post ('files[]', true, true);
-      $pics        = ($pics = $this->input_post ('pics')) ? $pics : array ();
       $blocks      = $this->input_post ('blocks');
 
-      if (true || ($title && $description && ($files || $pics) && is_numeric ($is_enabled))) {
-
-        if ($delete_pic_ids = array_diff (field_array ($product->pics, 'id'), $pics))
-          array_map (function ($pic) {
-            $pic->file_name->cleanAllFiles ();
-            $pic->delete ();
-          }, ProductPic::find ('all', array ('conditions' => array ('id IN (?) AND product_id = ?', $delete_pic_ids, $product->id))));
-
+      if (true || ($title && $description && $youtube && is_numeric ($is_enabled))) {
         array_map (function ($block) {
           array_map (function ($item) {
             $item->delete ();
@@ -148,10 +148,6 @@ class Products extends Admin_controller {
 
           $block->delete ();
         }, $product->blocks);
-
-        foreach ($files as $file)
-          if (verifyCreateOrm ($pic = ProductPic::create (array ('product_id' => $product->id, 'file_name' => ''))))
-            $pic->file_name->put ($file);
 
         if ($blocks)
           foreach ($blocks as $block) {
@@ -161,9 +157,13 @@ class Products extends Admin_controller {
               foreach ($block['items'] as $item)
                 ProductBlockItem::create (array ('product_block_id' => $b->id, 'title' => $item['title'], 'content' => $item['content']));
           }
+        
+        if ($file)
+          $product->file_name->put ($file);
 
         $product->title       = $title;
         $product->description = $description;
+        $product->youtube     = $youtube;
         $product->is_enabled  = $is_enabled;
         $product->product_tag_id = $product_tag_id ? $product_tag_id : 0;
         $product->save ();

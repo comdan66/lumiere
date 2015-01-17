@@ -39,13 +39,13 @@
           <tr>
             <td>圖片＊</td>
             <td class="textleft">
-              <div class='files'>
-                <button type="button" class='add_pic'>＋</button>
-              </div>
-              <br />
-              ( 圖片格式：jpg / gif / png )
-              <br />
-              * 最多12張圖
+              <input type='file' name='file' value=''/>
+            </td>
+          </tr>
+          <tr>
+            <td>youtube鏈結</td>
+            <td class="textleft">
+              <input type='text' value="" name='youtube' placeholder='請輸入youtube鏈結' title="請輸入youtube鏈結"  maxlength='100' pattern=".{1,100}" required title="請輸入youtube鏈結" />
             </td>
           </tr>
           <tr>
@@ -67,9 +67,6 @@
   </form>
 </section>
 
-<script id='_file' type='text/x-html-template'>
-  <input type="file" name='files[]' class='file' value='' accept="image/jpg, image/jpeg, image/png" />
-</script>
 
 <script id='_block1' type='text/x-html-template'>
   <table data-index='<%=index%>' data-count='0' width="100%" border="0" cellspacing="0" cellpadding="0" style='margin: 15px auto;'>

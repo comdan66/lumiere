@@ -12,6 +12,8 @@ class Migration_Add_products extends CI_Migration {
               `product_tag_id` int(11) NOT NULL,
               `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
               `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+              `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+              `youtube` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
               `is_enabled` int(11) NOT NULL DEFAULT '1',
               `created_at` datetime NOT NULL DEFAULT '" . date ('Y-m-d H:i:s') . "',
               `updated_at` datetime NOT NULL DEFAULT '" . date ('Y-m-d H:i:s') . "',

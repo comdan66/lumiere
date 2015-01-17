@@ -5,7 +5,7 @@
  * @copyright   Copyright (c) 2015 OA Wu Design
  */
 
-class ProductPicUploader extends OrmImageUploader {
+class ProductUploader extends OrmImageUploader {
 
   public function d4_url () {
     return '';

@@ -5,9 +5,6 @@
 
 $(function() {
   var index = 0;
-  $('.add_pic').click (function () {
-    $('.files').append (_.template ($('#_file').html (), {}) ({}))
-  }).click ();
 
   $('#add_block1').click (function () {
     var obj = {index: index++};
