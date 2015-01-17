@@ -1,0 +1,252 @@
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2015 OA Wu Design
+ */
+
+@import "_oa";
+
+* {
+  vertical-align: top;
+  @include selection(rgba(150, 180, 230, 1.0000), rgba(237, 239, 244, 1.0000));
+  @include font-smoothing(antialiased);
+
+  &, &:after, &:before {
+    @include box-sizing(border-box);
+  }
+}
+
+a {
+  color: rgba(42, 90, 149, 0.7);
+  @include transition(all .3s);
+
+  &:hover {
+    color: rgba(12, 65, 109, .85);
+  }
+}
+
+*.clearfix {
+  *zoom: 1;
+
+  &:after {
+    display: table;
+    content: "";
+    line-height: 0;
+    clear: both;
+  }
+}
+
+html {
+  body {
+    font-family:Arial, Helvetica, "微軟正黑體", sans-serif;
+    font-size: 16px;
+
+    #supersize {
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -999;
+      img {
+        @include opacity(0);
+        @include transition(opacity 2s);
+
+        &.show {
+          @include opacity(1);
+        }
+      }
+    }
+
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 736px) {
+  html {
+    height: 100%;
+    body {
+      margin: 0;
+      text-align: center;
+      height: 100%;
+      padding: 20px 10px 10px 10px;
+
+      #container {
+        width: 100%;
+        display: inline-block;
+        position: relative;
+        text-align: left;
+        height: 100%;
+
+        .slider {
+          text-align: center;
+          font-size: 15px;
+          & {
+            *zoom: 1;
+
+            &:after {
+              display: table;
+              content: "";
+              line-height: 0;
+              clear: both;
+            }
+          }
+
+          img.logo {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 15px;
+          }
+          .item {
+            float: left;
+            display: inline-block;
+            width: 50%;
+            font-size: 18px;
+            padding: 10px 0;
+            border-bottom: 2px solid #fff;
+            a {
+              color: #fff;
+              text-decoration: none;
+              @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.375));
+            }            
+            &:hover {
+              a {
+                color: #70bc59;
+                @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.175));
+              }
+              border-bottom: 2px solid #70bc59;
+            }
+
+            &:nth-child(2n+1) {
+              width: calc(50% - 8px);
+              margin-left: 8px;
+            }
+            &:nth-child(2n) {
+              width: calc(50% - 8px);
+              margin-right: 8px;
+            }
+          }
+        }
+      }
+      .footer {
+        position: absolute;
+        display: inline-block;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 1);
+        @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.375));
+
+        .left {
+          p {
+            margin: 2px;
+
+              a {
+                color: #fff;
+                text-decoration: none;
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 737px) {
+  html {
+    height: 100%;
+
+    body {
+      margin: 0;
+      text-align: center;
+      height: 100%;
+
+      #container {
+        width: 100%;
+        max-width: 1200px;
+        display: inline-block;
+        position: relative;
+        text-align: left;
+        height: 100%;
+
+        .slider {
+          position: relative;
+          display: inline-block;
+          width: 250px;
+          
+          .logo {
+            display: inline-block;
+            width: 148px;
+            height: 38px;
+
+            margin: 50px 0;
+            font-size: 80px;
+            color: rgba(255, 255, 255, 1);
+          }
+          .item {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 1);
+            border-bottom: 1px solid rgba(103, 175, 81, 0);
+            margin-bottom: 25px;
+            @include transition(all .5s);
+            @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.375));
+
+            a {
+              color: #fff;
+              text-decoration: none;
+              &:hover {
+                color: #70bc59;
+                border-bottom: 1px solid #70bc59;
+                @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.175));
+              }
+            }  
+          }
+        }
+        .footer {
+          position: absolute;
+          display: inline-block;
+          width: 100%;
+          height: 200px;
+          bottom: 25px;
+          left: 0;
+
+          .left, .right {
+            position: relative;
+            float: left;
+            width: 400px;
+            height: 100%;
+            font-size: .8em;
+            text-align: left;
+            color: rgba(255, 255, 255, 1);
+            line-height: 1.6;
+            @include text-shadow(1px 1px 3px rgba(0, 0, 0, 0.375));
+          }
+          .left {
+            p {
+              margin: 2px;
+              a {
+                color: #fff;
+                text-decoration: none;
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+          .right {
+            text-align: right;
+            width: calc(100% - 400px);
+            p {
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              margin: 4px;
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
