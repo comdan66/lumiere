@@ -1,5 +1,5 @@
 <div class='to'>
-  <div class='tt'>SCENTS</div>
+  <div class='tt'>PRODUCT</div>
 </div>
 
 <div class='t'>
