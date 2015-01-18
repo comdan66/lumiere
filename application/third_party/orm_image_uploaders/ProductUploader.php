@@ -17,7 +17,7 @@ class ProductUploader extends OrmImageUploader {
             '64x64' => array ('adaptiveResizeQuadrant', 64, 64, 'c'),
             '80x80' => array ('adaptiveResizeQuadrant', 80, 80, 'c'),
             '200x200' => array ('adaptiveResizeQuadrant', 200, 200, 'c'),
-            '855x575' => array ('adaptiveResizeQuadrant', 855, 575, 'c'),
+            '855x350' => array ('adaptiveResizeQuadrant', 855, 350, 'c'),
           );
   }
 }
