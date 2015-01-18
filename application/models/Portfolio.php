@@ -10,7 +10,8 @@ class Portfolio extends OaModel {
   static $table_name = 'portfolios';
 
   static $has_one = array (
-    array ('first_pic', 'class_name' => 'PortfolioPic', 'order' => 'id ASC', 'foreign_key' => 'portfolio_id')
+    array ('first_pic', 'class_name' => 'PortfolioPic', 'order' => 'id ASC', 'foreign_key' => 'portfolio_id'),
+    array ('first_type_1_block', 'class_name' => 'PortfolioBlock', 'ORDER' => 'id ASC', 'conditions' => array ('type = ?' , 1))
   );
 
   static $has_many = array (

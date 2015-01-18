@@ -57,48 +57,75 @@
 
   <div class='u'>
     <div class='l'>
-
-      <div class='y'>都復思景馬營技軍手好獎用</div>
-      <div class='p'>
-        <div class='w'>都復思景馬營</div>
-        <div class='x'> </div>
-        <div class='v'>都復思景馬</div>
-      </div>
-      <div class='p'>
-        <div class='w'>都復思景馬營</div>
-        <div class='x'> </div>
-        <div class='v'>都復思景馬</div>
-      </div>
-
+<?php if ($portfolio->first_type_1_block) { ?>
+        <div class='y'><?php echo $portfolio->first_type_1_block->title;?></div>
+  <?php if ($portfolio->first_type_1_block->items) {
+          foreach ($portfolio->first_type_1_block->items as $item) { ?>
+            <div class='p'>
+              <div class='w'><?php echo $item->title;?></div>
+              <div class='x'> </div>
+              <div class='v'><?php echo $item->content;?></div>
+            </div>
+    <?php }
+        }
+      } ?>
     </div>
     <div class='r'>
-
-      <div class='y'>都復思景馬營技軍手好獎用</div>
-      <div class='p'>
-        <div class='w'>都復思景馬營</div>
-        <div class='x'> </div>
-        <div class='v'>都復思景馬</div>
-      </div>
-      <div class='p'>
-        <div class='w'>都復思景馬營</div>
-        <div class='x'> </div>
-        <div class='v'>都復思景馬</div>
-      </div>
-      <div class='c'>都復思景馬營技軍手好獎用都復思景馬營技軍手好獎用都復思景馬營技軍手好獎用都復思景馬營技軍手好獎用都復思景馬營技軍手好獎用都復思景馬營技軍手好獎用</div>
+<?php if ($portfolio->blocks) {
+        foreach ($portfolio->blocks as $block) {
+          if ($block->id != $portfolio->first_type_1_block->id) {
+            if ($block->type == '1') { ?>
+              <div class='y'><?php echo $block->title;?></div>
+        <?php if ($block->items) {
+                foreach ($block->items as $item) { ?>
+                  <div class='p'>
+                    <div class='w'><?php echo $item->title;?></div>
+                    <div class='x'> </div>
+                    <div class='v'><?php echo $item->content;?></div>
+                  </div>
+          <?php }
+              }
+            } else if ($block->type == '2') {
+              if ($block->items) {
+                foreach ($block->items as $item) {
+                  if ($item->title) { ?>
+                    <div class='y'><?php echo $item->title;?></div>
+            <?php }?>
+                  <div class='c'><?php echo $item->content;?></div>
+      <?php     }
+              }
+            }
+          }
+        }
+      } ?>
     </div>
   </div>
   
   <div class='q'>
-    <div class='y'>都復思景馬營技軍手好獎用</div>
-    <div class='p'>
-      <div class='w'>都復</div>
-      <div class='x'> </div>
-      <div class='v'>都復思</div>
-    </div>
-    <div class='p'>
-      <div class='w'>都復思營</div>
-      <div class='x'> </div>
-      <div class='v'>都馬</div>
-    </div>
-    <div class='c'>都復思景馬營技軍手好獎用都復思景馬營技軍手好獎用都復思景馬營技軍手好獎用都復思景馬營技軍手好獎用都復思景馬營技軍手好獎用都復思景馬營技軍手好獎用</div>
+<?php
+    if ($portfolio->blocks) {
+      foreach ($portfolio->blocks as $block) {
+        if ($block->type == '1') { ?>
+          <div class='y'><?php echo $block->title;?></div>
+    <?php if ($block->items) {
+            foreach ($block->items as $item) { ?>
+              <div class='p'>
+                <div class='w'><?php echo $item->title;?></div>
+                <div class='x'> </div>
+                <div class='v'><?php echo $item->content;?></div>
+              </div>
+      <?php }
+          }
+        } else if ($block->type == '2') {
+          if ($block->items) {
+            foreach ($block->items as $item) {
+              if ($item->title) { ?>
+                <div class='y'><?php echo $item->title;?></div>
+        <?php }?>
+              <div class='c'><?php echo $item->content;?></div>
+  <?php     }
+          }
+        }
+      }
+    } ?>
   </div>

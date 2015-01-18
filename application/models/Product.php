@@ -9,6 +9,10 @@ class Product extends OaModel {
 
   static $table_name = 'products';
 
+  static $has_one = array (
+    array ('first_type_1_block', 'class_name' => 'ProductBlock', 'foreign_key' => 'product_id', 'ORDER' => 'id ASC', 'conditions' => array ('type = ?' , 1))
+  );
+
   static $has_many = array (
     array ('blocks', 'class_name' => 'ProductBlock', 'foreign_key' => 'product_id')
   );
