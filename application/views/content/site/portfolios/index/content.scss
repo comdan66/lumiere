@@ -1,0 +1,258 @@
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2015 OA Wu Design
+ */
+
+@import "_oa";
+
+.paginations {
+  color: #767676;
+  text-align: center;
+
+  ul.pagination {
+    display: inline-block;
+    padding: 0;
+
+    *zoom: 1;
+
+    &:after {
+      display: table;
+      content: "";
+      line-height: 0;
+      clear: both;
+    }
+    li {
+      float: left;
+      list-style-type: none;
+      display: inline-block;
+      margin: 0 10px;
+      font-weight: bold;
+
+      a {
+        display:block;
+        width:12px;
+        text-decoration: none;
+        color: #767676;
+        font-weight: normal;
+        @include transition(none);
+
+        &:hover {
+          color: #70bc59;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 736px) {
+  html {
+    body {
+      #container {
+        .content {
+          padding: 0 5px;
+          .top {
+            display: none;
+          }
+          .paginations {
+            margin-top: 25px;
+            ul.pagination {
+              padding: 0;
+              margin: 0;
+              li {
+                text-indent: -9999px;
+                width: 11px;
+                height: 17px;
+                background-image: url(/resource/site/img/icon.png);
+                background-repeat: no-repeat;
+                
+                &.USE {
+                  background-position: -62px -4px;
+
+                  &:hover {
+                    background-position: -50px -4px;                  
+                  }            
+                }
+                &.UP {
+                  background-position: -2px -4px; 
+                  &:hover {
+                    background-position: -13px -4px;                  
+                  }                         
+                }
+                &.NEXT {
+                  background-position: -37px -4px;    
+                  &:hover {
+                    background-position: -26px -4px;                  
+                  }                                       
+                }
+                &.NOUSE {
+                  background-position: -50px -4px;                  
+                }
+              }
+            }      
+          }
+          .units {
+            margin-top: 5px;
+            @include clearfix();
+
+            .unit {
+              display: inline-block;
+              float: left;
+              
+              width: calc(50% - 10px);
+              margin: 7px 5px;
+              text-align: left;
+
+              @include opacity(1);
+              &.cover {
+                @include opacity(.3);
+              }
+              img {
+                width: 100%;
+              }
+              .t {
+                display: inline-block;
+                width: calc(100% - 5px);
+                height: 18px;
+                font-size: 15px;
+                color: rgba(66, 40, 14, 1);
+                margin-top: 5px;
+                @include overflow-docx3();
+
+                &:before {
+                  content: "//";
+                  color: rgba(224, 121, 38, 1);
+                  margin-right: 10px;
+                }
+              }
+              .d {
+                display: inline-block;
+                width: calc(100% - 17px);
+                color: rgba(126, 127, 128, 1);
+                font-size: 13px;
+                margin-left: 17px;
+                @include overflow-docx3();
+              }
+            }
+          }  
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 737px) {
+  html {
+    body {
+      #container {
+        .content {
+          padding: 0 30px;
+
+          .top {
+            position: relative;
+            text-align: center;
+            margin-top: 25px;
+            
+            &:after {
+              content: " ";
+              position: absolute;
+              display: inline-block;
+              width: 100%;
+              height: 1px;
+              border-top: 1px solid rgba(66, 40, 14, 1);
+              top: 15px;
+              left: 0;
+              z-index: 1;
+            }
+            .t {
+              position: relative;
+              font-size: 25px;
+              color: rgba(66, 40, 14, 1);
+              background-color: #fff;
+              display: inline-block;
+              width: 200px;
+              z-index: 2;
+            }
+          }
+          .paginations {
+            margin-top: 25px;
+            ul.pagination {
+              padding: 0;
+              margin: 0;
+              li {
+                text-indent: -9999px;
+                width: 11px;
+                height: 17px;
+                background-image: url(/resource/site/img/icon.png);
+                background-repeat: no-repeat;
+                
+                &.USE {
+                  background-position: -62px -4px;
+
+                  &:hover {
+                    background-position: -50px -4px;                  
+                  }            
+                }
+                &.UP {
+                  background-position: -2px -4px; 
+                  &:hover {
+                    background-position: -13px -4px;                  
+                  }                         
+                }
+                &.NEXT {
+                  background-position: -37px -4px;    
+                  &:hover {
+                    background-position: -26px -4px;                  
+                  }                                       
+                }
+                &.NOUSE {
+                  background-position: -50px -4px;                  
+                }
+              }
+            }        
+          }
+          .units {
+            margin-top: 5px;
+            @include clearfix();
+
+            .unit {
+              display: inline-block;
+              width: 200px;
+              margin: 7px 5px;
+              float: left;
+
+              @include opacity(1);
+              &.cover {
+                @include opacity(.3);
+              }
+              img {
+                width: 200px;
+                height: 200px;
+              }
+              .t {
+                display: inline-block;
+                width: calc(100% - 5px);
+                height: 18px;
+                font-size: 15px;
+                color: rgba(66, 40, 14, 1);
+                margin-top: 5px;
+                @include overflow-docx3();
+
+                &:before {
+                  content: "//";
+                  color: rgba(224, 121, 38, 1);
+                  margin-right: 10px;
+                }
+              }
+              .d {
+                display: inline-block;
+                width: calc(100% - 17px);
+                color: rgba(126, 127, 128, 1);
+                font-size: 13px;
+                margin-left: 17px;
+                @include overflow-docx3();
+              }
+            }
+          }  
+        }        
+      }
+    }
+  }
+}

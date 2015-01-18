@@ -5,17 +5,17 @@
  * @copyright   Copyright (c) 2015 OA Wu Design
  */
 
-class Scents extends Site_controller {
+class Products extends Site_controller {
 
   public function __construct () {
     parent::__construct ();
   }
 
   public function index ($offset = 0) {
-    $limit = 8;
-    $total = Scent::count (array ('conditions' => array ('is_enabled = ?', 1)));
+    $limit = 16;
+    $total = Product::count (array ('conditions' => array ('is_enabled = ?', 1)));
     $offset = ($offset < $total) || ($offset >= 0) ? $offset : 0;
-    $scents = Scent::find ('all', array ('offset' => $offset, 'limit' => $limit, 'order' => 'id DESC', 'conditions' => array ('is_enabled = ?', 1)));
+    $products = Product::find ('all', array ('offset' => $offset, 'limit' => $limit, 'order' => 'id DESC', 'conditions' => array ('is_enabled = ?', 1)));
 
     $this->load->library ('pagination');
     
@@ -43,10 +43,10 @@ class Scents extends Site_controller {
     $this->pagination->initialize ($pagination_config);
     $pagination = $this->pagination->create_links ();
 
-    $this->set_page_title ('SCENTS')->load_view (array ('page_key' => 'scents', 'scents' => $scents, 'pagination' => $pagination));
+    $this->set_page_title ('PRODUCT')->load_view (array ('page_key' => 'products', 'products' => $products, 'pagination' => $pagination));
   }
   public function content ($id) {
-    ($scent = Scent::find ('one', array ('conditions' => array ('id = ? AND is_enabled = ?', $id, 1)))) || redirect (array ($this->get_class ()));
-    $this->set_page_title ('SCENTS')->load_view (array ('scent' => $scent));
+    ($product = Product::find ('one', array ('conditions' => array ('id = ? AND is_enabled = ?', $id, 1)))) || redirect (array ($this->get_class ()));
+    $this->set_page_title ('PRODUCT')->load_view (array ('product' => $product));
   }
 }
