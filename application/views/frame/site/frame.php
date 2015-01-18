@@ -19,7 +19,9 @@
     <div id='container'>
       <div class='header'>
         <div class='logo'>
-          <img src='<?php echo base_url (array ('resource', 'site', 'img', 'p_logo.png'));?>' />
+          <a href='<?php echo base_url ();?>'>
+            <img src='<?php echo base_url (array ('resource', 'site', 'img', 'p_logo.png'));?>' />
+          </a>
         </div>
         <div class='title'><?php echo isset ($page_title) ? $page_title : '';?></div>
         <div class='option'>
@@ -33,7 +35,9 @@
 
       <div class='slider'>
         <div class='logo'>
-          <img src='<?php echo base_url (array ('resource', 'site', 'img', 'plogo.png'));?>' />
+          <a href='<?php echo base_url ();?>'>
+            <img src='<?php echo base_url (array ('resource', 'site', 'img', 'plogo.png'));?>' />
+          </a>
         </div>
   <?php echo render_cell ('site_cells', 'menus');?>
         

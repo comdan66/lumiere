@@ -11,11 +11,12 @@ class Scents extends Site_controller {
     parent::__construct ();
   }
 
-  public function index ($offset = 0) {
+  public function index ($offset = 0, $tag = '') {
+    $tag = ScentTag::find ('one', array ('conditions' => array ('name = ?', $tag)));
     $limit = 8;
-    $total = Scent::count (array ('conditions' => array ('is_enabled = ?', 1)));
+    $total = Scent::count (array ('conditions' => $tag ? array ('is_enabled = ? AND scent_tag_id = ?', 1, $tag->id) : array ('is_enabled = ?', 1)));
     $offset = ($offset < $total) || ($offset >= 0) ? $offset : 0;
-    $scents = Scent::find ('all', array ('offset' => $offset, 'limit' => $limit, 'order' => 'id DESC', 'conditions' => array ('is_enabled = ?', 1)));
+    $scents = Scent::find ('all', array ('offset' => $offset, 'limit' => $limit, 'order' => 'id DESC', 'conditions' => $tag ? array ('is_enabled = ? AND scent_tag_id = ?', 1, $tag->id) : array ('is_enabled = ?', 1)));
 
     $this->load->library ('pagination');
     

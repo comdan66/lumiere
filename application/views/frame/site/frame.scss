@@ -211,15 +211,8 @@ html {
           width: $sliderWidth;
           background-color: rgba(212, 200, 187, 1);
 
-          &:before {
-            content: "";
-            position: absolute;
-            left: 30px;
-            height: 100%;
-            width: 1px;
-            border-left: 1px solid rgba(255, 0, 0, .3);
-            z-index: -10px;
-          }
+          background-image: url(/resource/site/img/mbg.png);
+
           .logo {
             width: 285px;
             height: 130px;
@@ -291,7 +284,7 @@ html {
             }
 
             .t {
-              padding-left: 60px;
+              padding-left: 40px;
               margin-bottom: 10px;
               @include clearfix();
 
@@ -338,7 +331,7 @@ html {
               }
             }
             .b {
-              padding-left: 60px;
+              padding-left: 40px;
             }
           }
         }

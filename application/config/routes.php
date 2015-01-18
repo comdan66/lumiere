@@ -3,8 +3,8 @@
 $route['scent/(:num)'] = "scents/content/$1";
 $route['product/(:num)'] = "products/content/$1";
 $route['portfolio/(:num)'] = "portfolios/content/$1";
-// $route['aroma/(:num)'] = "aromas/content/$1";
-// $route['aromas/(:any)'] = "aromas/index/$1";
+$route['scent/(:num)'] = "scents/content/$1";
+$route['scents/(:any)'] = "scents/index/$1";
 
 $route['admin'] = "admin/main";
 $route['admin/edit'] = "admin/main/edit";

@@ -26,12 +26,14 @@
     <div class='header'>
       <div class='container'>
         <div class='l'>
-          <img src='<?php echo base_url (array ('resource', 'site', 'img', 'logo.png'));?>' />
+          <a href='<?php echo base_url ();?>'>
+            <img src='<?php echo base_url (array ('resource', 'site', 'img', 'logo.png'));?>' />
+          </a>
         </div>
         <div class='r'>
           <div class='i'><a href='<?php echo base_url (array ('services'));?>'>SERVICE</a></div>
-          <div class='i'><a href='<?php echo base_url (array ('protfolio'));?>'>PORTFOLIO</a></div>
-          <div class='i'><a href='<?php echo base_url (array ('product'));?>'>PRODUCT</a></div>
+          <div class='i'><a href='<?php echo base_url (array ('portfolios'));?>'>PORTFOLIO</a></div>
+          <div class='i'><a href='<?php echo base_url (array ('products'));?>'>PRODUCT</a></div>
           <div class='i'><a href='<?php echo base_url (array ('scents'));?>'>SCENTS</a></div>
           <div class='i'><a href='<?php echo base_url (array ('abouts'));?>'>ABOUT</a></div>
         </div>

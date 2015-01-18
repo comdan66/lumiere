@@ -5,7 +5,7 @@
 <?php if ($tags = ScentTag::find ('all')) { ?>
         <div class='sub' data-key='scents'>
     <?php foreach ($tags as $tag) { ?>
-            <div class='item'><a href='<?php echo base_url ('scents');?>#<?php echo $tag->name;?>'><?php echo $tag->name;?></a></div>
+            <div class='item'><a href='<?php echo base_url (array ('scents', 0, $tag->name));?>'><?php echo $tag->name;?></a></div>
    <?php  } ?>
         </div>
 <?php } ?>

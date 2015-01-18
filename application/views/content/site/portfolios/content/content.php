@@ -87,10 +87,10 @@
               }
             } else if ($block->type == '2') {
               if ($block->items) {
-                foreach ($block->items as $item) {
-                  if ($item->title) { ?>
-                    <div class='y'><?php echo $item->title;?></div>
-            <?php }?>
+                if ($item->title) { ?>
+                  <div class='y'><?php echo $item->title;?></div>
+          <?php }
+                foreach ($block->items as $item) {?>
                   <div class='c'><?php echo $item->content;?></div>
       <?php     }
               }
@@ -118,10 +118,10 @@
           }
         } else if ($block->type == '2') {
           if ($block->items) {
-            foreach ($block->items as $item) {
-              if ($item->title) { ?>
-                <div class='y'><?php echo $item->title;?></div>
-        <?php }?>
+            if ($item->title) { ?>
+              <div class='y'><?php echo $item->title;?></div>
+      <?php }
+            foreach ($block->items as $item) {?>
               <div class='c'><?php echo $item->content;?></div>
   <?php     }
           }
