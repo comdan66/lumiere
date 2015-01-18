@@ -43,10 +43,13 @@ class Portfolios extends Site_controller {
     $this->pagination->initialize ($pagination_config);
     $pagination = $this->pagination->create_links ();
 
-    $this->set_page_title ('PRODUCT')->load_view (array ('page_key' => 'portfolios', 'portfolios' => $portfolios, 'pagination' => $pagination));
+    $this->set_page_title ('PORTFOLIO')->load_view (array ('page_key' => 'portfolios', 'portfolios' => $portfolios, 'pagination' => $pagination));
   }
   public function content ($id) {
+
     ($portfolio = Portfolio::find ('one', array ('conditions' => array ('id = ? AND is_enabled = ?', $id, 1)))) || redirect (array ($this->get_class ()));
-    $this->set_page_title ('PRODUCT')->load_view (array ('portfolio' => $portfolio));
+    $this->add_js (base_url (utilitySameLevelPath ('resource', 'site', 'js', 'bootstrap.min.js')))
+         ->add_js (base_url (utilitySameLevelPath ('resource', 'site', 'js', 'swipe.js')))
+         ->set_page_title ('PORTFOLIO')->load_view (array ('portfolio' => $portfolio));
   }
 }
