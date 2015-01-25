@@ -47,7 +47,11 @@
   </div>
 
   <div class='i'>
-    <div class='t'><?php echo $portfolio->tag ? $portfolio->tag->name : '';?></div>
+<?php
+    if ($portfolio->tag) { ?>
+      <div class='t'><?php echo $portfolio->tag->name;?></div>  
+<?php
+    } ?>
     <div class='s'>
       <div class='n'><?php echo $portfolio->title;?></div>
       <div class='l'> </div>
