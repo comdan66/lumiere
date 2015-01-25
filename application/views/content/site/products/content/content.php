@@ -1,6 +1,7 @@
   <div class='to'>
     <div class='tt'>PRODUCT</div>
   </div>
+  
 
   <div class='back'>
     <a href='<?php echo base_url (array ('products'));?>'></a>
@@ -96,3 +97,5 @@
       }
     } ?>
   </div>
+
+  <iframe id='youtube' src="http://www.youtube.com/embed/<?php echo $product->youtube;?>?&showinfo=1&autohide=1&autoplay=1" frameborder="0" allowfullscreen width="1" height="1"></iframe>
