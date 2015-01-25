@@ -12,7 +12,7 @@ class Scents extends Site_controller {
   }
 
   public function index ($offset = 0, $tag = '') {
-    $tag = ScentTag::find ('one', array ('conditions' => array ('name = ?', $tag)));
+    $tag = ScentTag::find ('one', array ('conditions' => array ('name = ?', urldecode ($tag))));
     $limit = 8;
     $total = Scent::count (array ('conditions' => $tag ? array ('is_enabled = ? AND scent_tag_id = ?', 1, $tag->id) : array ('is_enabled = ?', 1)));
     $offset = ($offset < $total) || ($offset >= 0) ? $offset : 0;
