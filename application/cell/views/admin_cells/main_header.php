@@ -1,6 +1,6 @@
 <header id="navtop">
   <a href="<?php echo base_url (array ());?>" class="logo fleft">
-    <img src="/resource/admin/images/logo_m.jpg" alt="ZEUS DESIGN">
+    <img src="/resource/admin/images/logo_m.png" alt="ZEUS DESIGN">
   </a>
 <?php
   if (identity ()->user ()) { ?>

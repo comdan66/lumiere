@@ -2,9 +2,9 @@
   <hr>
 <?php
   if (identity ()->user ()) { ?>
-    <p class="fleft">台灣嗅覺香氛行銷協會</p>
+    <p class="fleft">綠迷國際有限公司</p>
     <strong>
-      <a href="<?php echo base_url (array ('admin', 'login'));?>" class="alignright">SMA(<?php echo identity ()->user ()->account;?>)</a>
+      <a href="<?php echo base_url (array ('admin', 'login'));?>" class="alignright">lumiere(<?php echo identity ()->user ()->account;?>)</a>
     </strong>
 <?php
   } ?>

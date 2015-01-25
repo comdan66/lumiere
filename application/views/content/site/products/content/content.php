@@ -12,7 +12,11 @@
   </div>
 
   <div class='i'>
-    <div class='t'><?php echo $product->tag ? $product->tag->name : '';?></div>
+<?php
+    if ($product->tag) { ?>
+      <div class='t'><?php echo $product->tag->name;?></div>  
+<?php
+    } ?>
     <div class='s'>
       <div class='n'><?php echo $product->title;?></div>
     </div>
