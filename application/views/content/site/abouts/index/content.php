@@ -1,6 +1,6 @@
   <div class='top'>
     <div class='l'> </div>
-    <div class='t'>ABOUTS</div>
+    <div class='t'>ABOUT</div>
     <div class='l'> </div>
   </div>
   <div id="outbox">
