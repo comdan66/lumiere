@@ -1,4 +1,8 @@
-
+  <div class='top'>
+    <div class='l'> </div>
+    <div class='t'>ABOUTS</div>
+    <div class='l'> </div>
+  </div>
   <div id="outbox">
       <div id="abt"></div>
         
