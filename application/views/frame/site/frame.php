@@ -43,9 +43,9 @@
         
         <div class='footer hide'>
           <div class='t'>
-            <div class='icon'><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20"><path d="M15 4.129h-2.856c-0.338 0-0.715 0.444-0.715 1.039v2.062h3.571v2.94h-3.571v8.83h-3.372v-8.829h-3.057v-2.941h3.057v-1.73c0-2.481 1.722-4.5 4.086-4.5h2.857v3.129z" fill="#444444"></path></svg></div>
-            <div class='line'></div>
-            <div class='icon'><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32"><path d="M15.996 15.457l16.004-7.539v-3.918h-32v3.906zM16.004 19.879l-16.004-7.559v15.68h32v-15.656z" fill="#444444"></path></svg></div>
+            <div class='icon'>
+              <a href="aroma@lumiere.tw"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32"><path d="M15.996 15.457l16.004-7.539v-3.918h-32v3.906zM16.004 19.879l-16.004-7.559v15.68h32v-15.656z" fill="#444444"></path></svg></a>
+            </div>
           </div>
           <div class='b'>
             © 2014 Lumiere International Lte.
