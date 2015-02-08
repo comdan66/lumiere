@@ -101,7 +101,9 @@
         
         
         <div class="tbox">
-            <div class="serbgimg"></div>
+            <div class="serbgimg">
+              <img src="<?php echo base_url (array ('resource', 'site', 'img', 'stepbg.jpg'));?>" />
+            </div>
            <div class="sd"></div>
         </div>
         
